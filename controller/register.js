@@ -9,10 +9,22 @@ exports.register = (req,res,next) => {
         studentno : studentno
     }).save()
     .then(result => {
-        res.status(201).json({message: 'registered', registerId: result._id});
+        res.status(201).json({message: 'registered', registerId: result._id, name: name});
         console.log('registered')
     })
     .catch(err => {
         console.log(err);
     })
 }
+
+exports.getRegister = (req,res,next) => {
+    Register.find()
+    .then(users => {
+        // res.send(JSON.stringify(users));
+        res.json(users);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
