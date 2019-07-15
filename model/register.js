@@ -10,6 +10,14 @@ const registerSchema = new Schema({
     studentno:{
         type: Number,
         required: true
+    },
+    contactno:{
+        type: Number,
+        required: true
+    },
+    email:{
+        type:String,
+        required: true
     }
 });
 
