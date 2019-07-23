@@ -14,6 +14,11 @@ exports.register = (req,res,next) => {
     const studentno = req.body.studentno;
     const contactno = req.body.contactno;
     const email = req.body.email;
+    const branch = req.body.branch;
+    const year = req.body.year;
+    const gender = req.body.gender;
+    const hosteler = req.body.hosteler;
+    const sports = req.body.sports;
 
     var option = {
         to: "vinayakg709@gmail.com",
@@ -26,7 +31,12 @@ exports.register = (req,res,next) => {
         name: name,
         studentno : studentno,
         contactno:contactno,
-        email:email
+        email:email,
+        branch: branch,
+        year:year,
+        gender:gender,
+        hosteler:hosteler,
+        sports:sports
     }).save()
     .then(result => {
         res.status(201).json({message: 'registered', registerId: result._id, name: name});

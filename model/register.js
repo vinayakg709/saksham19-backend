@@ -18,6 +18,26 @@ const registerSchema = new Schema({
     email:{
         type:String,
         required: true
+    },
+    gender:{
+        type: String,
+        required: true
+    },
+    hosteler:{
+        type: String,
+        required: true
+    },
+    branch:{
+        type: String,
+        required: true
+    },
+    year:{
+        type: String,
+        required: true
+    },
+    sports: {
+        type: Array,
+        required: true
     }
 });
 
