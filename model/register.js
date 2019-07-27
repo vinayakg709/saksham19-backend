@@ -8,7 +8,7 @@ const registerSchema = new Schema({
         required: true
     },
     studentno:{
-        type: Number,
+        type: String,
         required: true
     },
     contactno:{
