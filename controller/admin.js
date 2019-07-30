@@ -17,7 +17,7 @@ exports.admin = (req,res,next)=> {
             admin: isAdmin.admin,
             adminId : isAdmin._id.toString()
         }, 
-        'secret',
+        'secret', 
         {expiresIn: '1h'}
     );
         res.status(200).json({message: 'loggedin',token: token, adminId: isAdmin._id.toString()});
