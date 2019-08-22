@@ -6,7 +6,6 @@ const adminSchema = new Schema({
     admin:{
         type:String,
         required: true,
-        default: 'admin'
     },
     password:{
         type: String,

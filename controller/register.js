@@ -1,6 +1,7 @@
 const Register = require('../model/register');
 const nodemailer = require('nodemailer');
 const mailgunTransport = require('nodemailer-mailgun-transport');
+const mongo = require('mongodb');
 
 const transporter = nodemailer.createTransport(mailgunTransport({
     auth:{
@@ -10,6 +11,7 @@ const transporter = nodemailer.createTransport(mailgunTransport({
 }));
 
 exports.register = (req,res,next) => {
+    
     const name = req.body.name;
     const studentno = req.body.studentno;
     const contactno = req.body.contactno;
@@ -20,12 +22,7 @@ exports.register = (req,res,next) => {
     const hosteler = req.body.hosteler;
     const sports = req.body.sports;
 
-    var option = {
-        to: "vinayakg709@gmail.com",
-        from: "vinayakg709@gmail.com",
-        subject: 'registered',
-        html: "<h1> you are registered </h1>"
-    };
+   
 
     const register = new Register({
         name: name,
@@ -64,4 +61,20 @@ exports.getRegister = (req,res,next) => {
         console.log(err);
     })
 }
+
+exports.deleteDelete = (req,res,next)=>{
+    const id = req.body.pi;
+    console.log(id);
+    Register.findByIdAndRemove(id)
+    .then(
+        result => {
+            res.json({message: 'deleted'});
+            console.log('deleted')
+        }
+    ).catch(err => {
+        console.log(err);
+    })
+
+}
+
 
