@@ -26,7 +26,7 @@ app.use('*', (req, res) => {
 
 mongoose.connect('mongodb+srv://vinayak:Gv9yXEr5RamY9ydM@cluster0-ayowj.mongodb.net/saksham?retryWrites=true&w=majority')
 .then(result => {
-    app.listen(8000);
+    app.listen(process.env.PORT || 8000);
 })
 .catch(err => {
     console.log(err);
